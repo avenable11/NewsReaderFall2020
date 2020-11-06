@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">NewsReaderFall2020</string>
+    <string name="loadbtn">Download RSS Feed</string>
+    <string name="readbtn">Read RSS Feed</string>
+    <string name="item_pub_date">Published: Tues 15 Sept 2015</string>
+    <string name="item_title">Item Title</string>
+</resources>
