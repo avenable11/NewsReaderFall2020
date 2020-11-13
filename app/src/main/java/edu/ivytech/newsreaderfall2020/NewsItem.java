@@ -11,7 +11,7 @@ public class NewsItem {
     private String mPubDate;
 
     private SimpleDateFormat mDateOutFormat = new SimpleDateFormat("EEEE h:mm a (MMMM d)");
-    private SimpleDateFormat mDateInFormat = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss Z");
+    private static SimpleDateFormat sDateInFormat = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss Z");
 
     public String getTitle() {
         return mTitle;
@@ -45,10 +45,14 @@ public class NewsItem {
         mPubDate = pubDate;
     }
 
+    public static void setDateInFormat(String format) {
+        sDateInFormat.applyPattern(format);
+    }
+
     public String getPubDateFormatted() {
         try {
             if(mPubDate != null) {
-                Date date = mDateInFormat.parse(mPubDate.trim());
+                Date date = sDateInFormat.parse(mPubDate.trim());
                 String pubDateFormatted = mDateOutFormat.format(date);
                 return pubDateFormatted;
             }

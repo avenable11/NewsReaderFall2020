@@ -1,5 +1,6 @@
 package edu.ivytech.newsreaderfall2020;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,7 +46,7 @@ public class NewsListFragment extends Fragment {
         mRecyclerView.setAdapter(mNewsAdapter);
     }
 
-    private class NewsHolder extends RecyclerView.ViewHolder {
+    private class NewsHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView mPubDateTextView;
         private TextView mTitleTextView;
         private NewsItem mNewsItem;
@@ -55,6 +56,7 @@ public class NewsListFragment extends Fragment {
             super(inflater.inflate(R.layout.list_item, parent, false));
             mPubDateTextView = itemView.findViewById(R.id.pubDateTextView);
             mTitleTextView = itemView.findViewById(R.id.titleTextView);
+            itemView.setOnClickListener(this);
 
         }
         public void bind(NewsItem newsItem, int position) {
@@ -62,6 +64,10 @@ public class NewsListFragment extends Fragment {
             mPosition = position;
             mPubDateTextView.setText(mNewsItem.getPubDateFormatted());
             mTitleTextView.setText(mNewsItem.getTitle());
+        }
+        public void onClick(View view) {
+            Intent intent = NewsItemActivity.newIntent(getActivity(),mPosition);
+            startActivity(intent);
         }
     }
 

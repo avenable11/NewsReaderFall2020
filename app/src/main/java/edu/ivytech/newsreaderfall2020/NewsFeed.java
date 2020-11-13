@@ -40,6 +40,10 @@ public class NewsFeed {
     public void setPubDate(String pubDate) {
         mPubDate = pubDate;
     }
+    public void setDateInFormat(String format)
+    {
+        mDateInFormat.applyPattern(format);
+    }
 
     public long getPubDateMillis() {
         try {
@@ -69,6 +73,10 @@ public class NewsFeed {
 
     public void setSource(String source) {
         mSource = source;
+    }
+
+    public void clear() {
+        mItems.clear();
     }
 }
 

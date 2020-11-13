@@ -1,0 +1,9 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ListPreference
+        android:defaultValue="1"
+        android:entries="@array/reply_entries"
+        android:entryValues="@array/reply_values"
+        android:key="@string/newsSource"
+        android:title="@string/NewsSourceTitle" />
+</PreferenceScreen>
